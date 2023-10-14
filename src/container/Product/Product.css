@@ -82,100 +82,59 @@
   }
   
   .count {
-  
+    width: 0px;
     background: #2d3c8d;
-  
-    padding: 10px;
-  
+    padding: 8px;
     border-radius: 50%;
-  
     min-width: 5px;
-  
     height: 5px;
-  
     line-height: 5px;
-  
     text-align: center;
-  
     color: white;
-  
     font-size: 11px;
-  
     position: absolute;
-  
-    bottom: -8px;
-  
-    left: -13px;
-  
+    bottom: 5px;
+    left: -15px;
   }
   
   .img-thumb-prod img {
   
     width: 95%;
-  
     margin-left: 9px;
-  
     margin-top: 9px;
-  
   }
-  
-  
-  
   .product-title {
-  
     font-weight: 700;
-  
     margin: 10px;
-  
   }
-  
-  
   
   .product-price {
-  
     color: orange;
-  
     font-weight: 700;
-  
     margin-left: 10px;
-  
+    margin-top: 10PX;
   }
-  
-  
-  
-  .minus,
-  
-  .plus {
-    padding: 5px;  
+  .minus, .plus {
     color: white;
     background: rgb(0, 0, 145);
     margin:  10px;
-    font-size: x-large;
+    font-size: larger;
+    line-height: 35px;
+
   
   }
   
-  
-  
   .counter {
-  
+
     margin-left: 50px;
     margin-bottom: 10px;
     margin-top: -15px;
-  
   }
   
-  
-  
   .counter input {
-  
-    height: 40px;
-  
-    width: 150px;
-  
+    width: 10;
+    height: 20px;
     border-radius: 3px;
-  
     border: 1px solid gray;
-  
     text-align: center;
-  
   }         
