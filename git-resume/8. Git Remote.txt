@@ -1,0 +1,33 @@
+10/10/23
+
+= alias pada git
+alias gst="git status"
+alias gcm="git commit"
+alias gco="git checkout"
+alias graph="git log --decorate --all --oneline --graph"
+alias gbr="git branch"
+alias gmg="git merge"
+
+Rangkuman vidio #8 - .
+
+Git Remote adalah membuat duplicate ditempat lain ( github sbg contoh )
+buat file repo baru pada github
+copy https file tsb, pilih lokasi yg mana , klik kanan open git bash , jalankan perintahh
+git clone alamatrepo
+dalam hal ini sudah tidak perlu melakukan git init , karena secara otomtasi dari github sudah dibuatkan
+
+git push = untuk upload dari local ge github
+
+jika ingin menambahkan dari local ke github ,
+	buat repo baru
+	add readme jangan dicentang ,dan ikuti perintah sesuai dari github
+
+jika terdapat perubahan yang yang sama pada branch, maka fit tidak bisa di push, langkah selanjutnya adalah melakukan cek dengan git fetch 
+git fetch = digunakan untuk melihat commit pada github,
+selanjutnya lakukan git pull untuk mengambil perubahan dari github ke lokal, 
+secara otomatis akan diarahkan untuk mencari resolved terkait perubahan nya.
+jika sudah . git push kembali
+
+
+
+

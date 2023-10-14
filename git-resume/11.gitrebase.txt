@@ -1,0 +1,20 @@
+11/10/23
+
+alias pada git
+alias gst="git status"
+alias gcm="git commit"
+alias gco="git checkout"
+alias graph="git log --decorate --all --oneline --graph"
+alias gbr="git branch"
+alias gmg="git merge"
+
+Rangkuman vidio #12 - .
+
+.gitrebase digunakan jika saat kita melakukan git branch dan memodofikasi, tetapi saat yang sama ada collaborator yang lain menambahkan commit baru. jadi branch lebih kecil dari commit yang baru
+
+langkah yang dilakukan adalah
+melakukan cek terlebih dahulu sebelum melakukan git push
+git pull dulu ,
+kemudian jika branch master sdh sama , maka pindah ke branch yg dibuat , lakukan git rebase master ( rebase branch yg lama menjadi ikut commit yg baru )
+kembali ke branch master , lakukan juga git rebase branch yang baru, 
+update kembali , lalu push.

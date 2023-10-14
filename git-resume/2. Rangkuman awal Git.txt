@@ -1,0 +1,24 @@
+09/10/20
+
+Rangkuman vidio #2 - #5 awal Git.
+
+Instalasi git ( download & install saja secara default )
+buka aplikasi git
+	1.coba buat folder & file baru dengan git ,
+	2.lakukan inisialisai pada folder dengan cara git init
+	3.git status = digunakan untuk melihat ada perubahan pada file yg di proses
+	4.file yang ingin di commit, harus tersimpan di folder staging area
+	5.git add namafile = untuk manambahkan file ke staging area
+	6.git rm --cached nama file = digunakan untuk remove file dari staging area
+	7.setiap perubahan pada source code wajib save & commit pada git
+	8.setting konfigurasi ( awal setting git saja ) user sebaiknya disamakan dengan github
+		a. git config --global user.email "ybsetiyawan.gmail.com"
+		b. git config --global user.name "ybsetiyawan"
+	9.git commit = untuk commit file
+	10.git commit -m "detail keterangan pada commit"
+	11.git add . = untuk menambahkan semua file yang berubah ke staging area
+	12.git log = untuk melihat history perubahan
+	13.git log -3 = untuk melihat 3 commit terakhir
+	14.git log --namafile = untuk melihat pada file tertentu
+	15.git checkout (7 kode digit commit) -- namafile = untuk mengembalikan file yg terhapus
+	16.file yang udah terhapus otomatis tdk dikenali dan harus di tambahkan lagi di staging area

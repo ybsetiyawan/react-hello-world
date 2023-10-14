@@ -1,0 +1,18 @@
+10/10/23
+
+alias pada git
+alias gst="git status"
+alias gcm="git commit"
+alias gco="git checkout"
+alias graph="git log --decorate --all --oneline --graph"
+alias gbr="git branch"
+alias gmg="git merge"
+
+Rangkuman vidio #9 - .
+
+GitHub pages = membuat github menjadi webhosting gratis
+
+185.199.108.153
+185.199.109.153
+
+ididn'tnamemyhomepageindex.html

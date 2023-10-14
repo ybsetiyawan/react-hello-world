@@ -1,0 +1,12 @@
+Istilah Git
+repo : folder project kita
+comit : rekaman / snapshot dari repo kita
+hash : penanda unik sebuah commit
+chekcout : berpindah ke sebuuah commit
+branch : cabang bebad dari sebuah commit
+merge : menggabungkan branch
+remote : sumber yang memiliki repo
+clone : mengambil repo dari remote
+push : mengirimkan commit ke repo
+pull: mengambil commit dari repo
+fork : membuat copy / duplikat dari repo orang lain

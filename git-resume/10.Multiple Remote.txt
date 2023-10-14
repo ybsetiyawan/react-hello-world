@@ -1,0 +1,31 @@
+11/10/23
+
+alias pada git
+alias gst="git status"
+alias gcm="git commit"
+alias gco="git checkout"
+alias graph="git log --decorate --all --oneline --graph"
+alias gbr="git branch"
+alias gmg="git merge"
+
+Rangkuman vidio #10 - .
+
+multiple remote pada git adalah proses lebih dari 2 user yang menggunakan repo yang sama,
+
+fork dari repo yang dituju
+gitclone dan tentukan dimana folder ditempatkan pindah ke folder tsb
+cek remote git remote -v
+tambahkan remote dari akun yang di fork agar tetap bisa mendapatkan update dari commit yang dirubah dengan cara
+git remote add namaremote linkreponya
+
+cek dengan graph, 
+lakukan git fetch namaremote terlebih dahulu agar ke 3 remote sama, 
+
+jika master repo merubah data , 
+lakukan dengan cek git remote
+merge git local ke remote master repo dengan cara git merge namaremote/master
+
+jika lokal sdh sama dengan repo asli, maka tinggal repo di github yang di push
+git push -u namaremote master
+
+

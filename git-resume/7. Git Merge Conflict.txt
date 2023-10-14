@@ -1,0 +1,12 @@
+10/10/23
+
+Rangkuman vidio #7 - .
+
+Git Merge Conflict
+merge conflict terjadi karena 2 branch mengerjakan baris yang sama dalam 1 repo,
+jadi secara otomatis git tidak bisa melakukan merge,
+harus kita resolved secara manual agar bisa di merge
+dalam materi ini dicontohkan juga jika kita ingin kembali ke commit yang terakhir kita tinggal panggil saja dengan git log , lalu copy file commit yang ingin dituju.
+
+
+

@@ -1,0 +1,21 @@
+09/10/20
+
+Rangkuman vidio #6 - .
+
+Git Branch & Merge
+	1. Branch secara umum disebut master pada repo
+	2. Dengan menggunakan git, bisa memudahkan dalam mengelola file , bahkan sebelum / sesudah membuat file pada folder
+	3. git branch = digunakan untuk melihat branch , branch yg aktif dtandai dengan panah dan warna hijau pada git blas
+	4. git checkout = digunakan untuk berpindah ke branch yang akan di edit
+	5. touch namafile.extension = untuk create new file baru
+	6. git log --oneline --graph --decorate --all = melihat perjalanan commit dalam sebuah graf
+	7. gunakan alias untuk mempersingkat kode 
+		contoh : alias <namainisial>="perintah git" , lalu panggil dengan inisial tadi
+	8.ada 2 jenis merge di dalam git
+	- Fast Fordward = terjadi ketika branch yang digabungkan berada pada jalur langsung direct patch dari branch
+	- Three way merge = terjadi ketika branch yang digabungkan tidak pada satu jalur yang sama dari branch dan membuat commit baru
+	
+	9.git branch -d namabranch = untuk delete branch yg tidak digunakan
+	10.git branch --merge untuk cek branch yang sudah di merge
+	
+	
