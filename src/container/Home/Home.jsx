@@ -25,10 +25,9 @@ class Home extends React.Component {
                     tittle="Tugas yang ke 4"
                     desc="5x Ditonton 5 Hari yang lalu"/>
                 <YoutubeComp/> */}
-                {/* <p>Counter</p> */}
-                <hr />
+                <hr/>
                 <Product/>
-            </div>c
+            </div>
           )
     } 
 }
