@@ -1,5 +1,5 @@
 import React from "react";
-import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
+// import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
 // import Product from "../Product/Product"; 
 // import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
 import BlogPost from "../BlogPost/BlogPost";
