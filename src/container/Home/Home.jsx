@@ -1,9 +1,24 @@
 import React from "react";
 import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-import Product from "../Product/Product";
+// import Product from "../Product/Product"; 
+// import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
+import BlogPost from "../BlogPost/BlogPost";
 
 class Home extends React.Component {
+    state = {
+        showComponent :true
+    }
+    componentDidMount(){
+        // setTimeout(() => {
+        //     this.setState({
+        //         showComponent: false
+        //     })    
+        // }, 10000)
+        
+    }
+
     render() {
+
         return (
             <div>
                 {/* <p>Youtube Component</p>
@@ -25,8 +40,20 @@ class Home extends React.Component {
                     tittle="Tugas yang ke 4"
                     desc="5x Ditonton 5 Hari yang lalu"/>
                 <YoutubeComp/> */}
+                {/* <Product/> */}
+{/* 
+                <p>LifeCycle Component</p>
+                <hr />
+                {
+                    this.state.showComponent
+                    ?
+                    <LifeCycleComp />
+                    :null
+                } */}
+
+                <p>Blog Post</p>
                 <hr/>
-                <Product/>
+                <BlogPost />
             </div>
           )
     } 
