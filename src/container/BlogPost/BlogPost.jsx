@@ -7,11 +7,19 @@ import axios from "axios";
 class BlogPost extends Component {
 
     state = {
-        post: []
+        post: [],
+        // membuat objek untuk menyimpan hasil dari inputan pada placeholder
+        formBlogPost: {
+            id: 1,
+            title: '',
+            body: '',
+            userId: 1
+        }
+        
     }
 
     getPostAPI = () => {
-        axios.get('http://localhost:3004/posts')
+        axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
         .then((result) => {
             // console.log(result.data)
             this.setState({
@@ -19,13 +27,42 @@ class BlogPost extends Component {
             })
         })
     }
-
+   
+    postDataToAPI = () => {
+        axios.post('http://localhost:3004/posts',this.state.formBlogPost).then((res) =>{
+            console.log(res);
+            this.getPostAPI();
+        },(err) =>{
+            console.log('error :',err);
+        })
+    }
     // fungsi untuk mendapatkan id yang akan dihapus 
     handleRemove = (data) => {
         // console.log(data)
         axios.delete(`http://localhost:3004/posts/${data}`).then((res)=>{
             this.getPostAPI();
         })
+    }
+
+    handleFormChange = (event) => {
+        // event.target adalah fungsi dari javascript untuk mendapatkan nilai pada placeholder secara spesifik
+        // menampung isi dari formBlogPost dan dipindah ke formBlogPostNew untuk dijadikan variabel baru dan di panggil secara spesifik
+        let formBlogPostNew = {...this.state.formBlogPost};
+        // membuat id secara dinamis
+        let timeStamp = new Date().getTime();
+        // dimana menyasar pada formBlogPostNew id nya diganti dengan timeStamp
+        formBlogPostNew['id'] = timeStamp;
+        formBlogPostNew[event.target.name] = event.target.value;
+        this.setState({
+            formBlogPost: formBlogPostNew
+        }, () => {
+            // console.log('value obj formBlogPost: ', this.state.formBlogPost);
+        })
+    }
+
+    handleSubmit = () => {
+        // console.log(this.state.formBlogPost);
+        this.postDataToAPI();
     }
 
 
@@ -65,10 +102,13 @@ class BlogPost extends Component {
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" placeholder="add title" />
-                    <label htmlFor="body-content">Blog Content</label>
-                    <textarea name="body-content" id="body-content" cols="30" rows="10" placeholder="add blog content"></textarea>
-                    <button className="btn-submit">Simpan</button>
+                    <input type="text" name="title" placeholder="add title" onChange={this.handleFormChange} />
+                    <label htmlFor="body">Blog Content</label>
+                    <textarea
+                        name="body" id="body" cols="30" rows="10"
+                        placeholder="add blog content" onChange={this.handleFormChange}>
+                    </textarea>
+                    <button className="btn-submit" onClick={this.handleSubmit}>Simpan</button>
                 </div>
                 {
                     this.state.post.map(post => {
