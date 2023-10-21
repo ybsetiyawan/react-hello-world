@@ -14,7 +14,8 @@ class BlogPost extends Component {
             title: '',
             body: '',
             userId: 1
-        }
+        },
+        isUpdate: false
         
     }
 
@@ -32,8 +33,34 @@ class BlogPost extends Component {
         axios.post('http://localhost:3004/posts',this.state.formBlogPost).then((res) =>{
             console.log(res);
             this.getPostAPI();
+            this.setState({
+                formBlogPost: {
+                    id: 1,
+                    title: '',
+                    body: '',
+                    userId: 1
+                },
+            })
         },(err) =>{
             console.log('error :',err);
+        })
+    }
+
+    putDataToAPI = () => {
+           axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`,this.state.formBlogPost).then((res)=>{
+            console.log(res);
+            this.getPostAPI();
+            // mengmbalikan isUpdate menjadi false saat setelah user berhasil melakukan update data ( mengembalikan tombol simpan menjadi fungsi post)
+            this.setState({
+                isUpdate: false,
+                // mengembalikan kondisi form data seperti awal
+                formBlogPost: {
+                    id: 1,
+                    title: '',
+                    body: '',
+                    userId: 1
+                },
+            })
         })
     }
     // fungsi untuk mendapatkan id yang akan dihapus 
@@ -44,14 +71,25 @@ class BlogPost extends Component {
         })
     }
 
+    handleUpdate = (data) => {
+        console.log(data);
+        this.setState({
+            formBlogPost: data,
+            // ketika button update di klik oleh user, maka isUpdate berubah menjadi true
+            isUpdate: true
+        })
+    }
+
     handleFormChange = (event) => {
         // event.target adalah fungsi dari javascript untuk mendapatkan nilai pada placeholder secara spesifik
         // menampung isi dari formBlogPost dan dipindah ke formBlogPostNew untuk dijadikan variabel baru dan di panggil secara spesifik
         let formBlogPostNew = {...this.state.formBlogPost};
         // membuat id secara dinamis
         let timeStamp = new Date().getTime();
-        // dimana menyasar pada formBlogPostNew id nya diganti dengan timeStamp
-        formBlogPostNew['id'] = timeStamp;
+        // kondisi agar saat user ingin update data, data id tidak diganti dengan yang baru, agar data id yang lama masih bisa digunakan.
+        if(!this.state.isUpdate){
+            formBlogPostNew['id'] = timeStamp;
+        }
         formBlogPostNew[event.target.name] = event.target.value;
         this.setState({
             formBlogPost: formBlogPostNew
@@ -62,11 +100,15 @@ class BlogPost extends Component {
 
     handleSubmit = () => {
         // console.log(this.state.formBlogPost);
-        this.postDataToAPI();
+
+        // membuat kondisi jika isUpdate bernilai true maka lakukan 
+        if(this.state.isUpdate){
+            this.putDataToAPI();
+        }else{
+            this.postDataToAPI();
+        }
     }
-
-
-    
+   
     componentDidMount(){
 
         // cara pemanggilan API dengan menggunakan fetch
@@ -102,10 +144,13 @@ class BlogPost extends Component {
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" placeholder="add title" onChange={this.handleFormChange} />
+                    <input
+                        type="text" value={this.state.formBlogPost.title}
+                        name="title" placeholder="add title" onChange={this.handleFormChange} />
                     <label htmlFor="body">Blog Content</label>
                     <textarea
                         name="body" id="body" cols="30" rows="10"
+                        value={this.state.formBlogPost.body}
                         placeholder="add blog content" onChange={this.handleFormChange}>
                     </textarea>
                     <button className="btn-submit" onClick={this.handleSubmit}>Simpan</button>
@@ -114,7 +159,7 @@ class BlogPost extends Component {
                     this.state.post.map(post => {
                         // return  <Post key={post.id} title={post.title} desc={post.body} remove={this.handleRemove}/>
                         // menyederhanakan fungsi post title dan desc menjadi 1 props
-                        return  <Post key={post.id} data={post} remove={this.handleRemove}/>
+                        return  <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} />
                     })
                 }
             </Fragment>
