@@ -1,60 +1,43 @@
-import React from "react";
-// import YoutubeComp from "../../component/YoutubeComp/YoutubeComp";
-// import Product from "../Product/Product"; 
-// import LifeCycleComp from "../LifeCycleComp/LifeCycleComp";
-import BlogPost from "../BlogPost/BlogPost";
-
-class Home extends React.Component {
+import React, { Component, Fragment } from "react";
+import Product from "../Pages/Product/Product"; 
+import LifeCycleComp from "../Pages/LifeCycleComp/LifeCycleComp";
+import BlogPost from "../Pages/BlogPost/BlogPost";
+import { BrowserRouter, Route, Link } from "react-router-dom";
+import './Home.css'
+import YoutubeCompPage from "../Pages/YoutubeCompPage/YoutubeCompPage";
+class Home extends Component {
     state = {
         showComponent :true
     }
-    componentDidMount(){
-        // setTimeout(() => {
-        //     this.setState({
-        //         showComponent: false
-        //     })    
-        // }, 10000)
+    // componentDidMount(){
+    //     // setTimeout(() => {
+    //     //     this.setState({
+    //     //         showComponent: false
+    //     //     })    
+    //     // }, 10000)
         
-    }
+    // }
 
     render() {
 
         return (
-            <div>
-                {/* <p>Youtube Component</p>
-                <hr />
-                <YoutubeComp 
-                    time="7.12"
-                    tittle="Tugas yang ke 1"
-                    desc="2x Ditonton 2 Hari yang lalu"/>
-                <YoutubeComp
-                    time="8.12"
-                    tittle="Tugas yang ke 2"
-                    desc="4x Ditonton 4 Hari yang lalu"/>
-                <YoutubeComp
-                    time="9.12"
-                    tittle="Tugas yang ke 3"
-                    desc="6x Ditonton 6 Hari yang lalu"/>
-                <YoutubeComp
-                    time="10.12"
-                    tittle="Tugas yang ke 4"
-                    desc="5x Ditonton 5 Hari yang lalu"/>
-                <YoutubeComp/> */}
-                {/* <Product/> */}
-{/* 
-                <p>LifeCycle Component</p>
-                <hr />
-                {
-                    this.state.showComponent
-                    ?
-                    <LifeCycleComp />
-                    :null
-                } */}
+            <BrowserRouter>
+       
+            <Fragment>
+                <div className="navigation">
+                    <Link to="/">BlogPost</Link>
+                    <Link to="/produk">Produk</Link>
+                    <Link to="/lifecycle">Lifecyle</Link>
+                    <Link to="/youtube-component">Youtube Comp</Link>
+                </div>
+                <Route path="/" exact component={BlogPost} />
+                <Route path="/produk" component={Product} />
+                <Route path="/lifecycle" component={LifeCycleComp} />
+                <Route path="/youtube-component" component={YoutubeCompPage} />
+            </Fragment>
+            </BrowserRouter>
 
-                <p>Blog Post</p>
-                <hr/>
-                <BlogPost />
-            </div>
+            
           )
     } 
 }
