@@ -5,6 +5,7 @@ import BlogPost from "../Pages/BlogPost/BlogPost";
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import './Home.css'
 import YoutubeCompPage from "../Pages/YoutubeCompPage/YoutubeCompPage";
+import DetailPost from "../Pages/BlogPost/DetailPost/DetailPost";
 class Home extends Component {
     state = {
         showComponent :true
@@ -31,6 +32,7 @@ class Home extends Component {
                     <Link to="/youtube-component">Youtube Comp</Link>
                 </div>
                 <Route path="/" exact component={BlogPost} />
+                <Route path="/detail-post/:postId" component={DetailPost} />
                 <Route path="/produk" component={Product} />
                 <Route path="/lifecycle" component={LifeCycleComp} />
                 <Route path="/youtube-component" component={YoutubeCompPage} />

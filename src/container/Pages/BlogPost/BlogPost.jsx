@@ -108,6 +108,11 @@ class BlogPost extends Component {
             this.postDataToAPI();
         }
     }
+
+    handleDetail = (id) => {
+        this.props.history.push(`/detail-post/${id}`);
+    }
+
    
     componentDidMount(){
 
@@ -141,7 +146,7 @@ class BlogPost extends Component {
     render() {
         return(
             <Fragment>
-                <p className="section-title">Halaman Blog Post</p>
+                <p>Halaman Blog Post</p>
                 <hr />
                 <p className="section-title">Blog Post</p>
                 <div className="form-add-post">
@@ -161,7 +166,7 @@ class BlogPost extends Component {
                     this.state.post.map(post => {
                         // return  <Post key={post.id} title={post.title} desc={post.body} remove={this.handleRemove}/>
                         // menyederhanakan fungsi post title dan desc menjadi 1 props
-                        return  <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} />
+                        return  <Post key={post.id} data={post} remove={this.handleRemove} update={this.handleUpdate} goDetail={this.handleDetail}/>
                     })
                 }
             </Fragment>
