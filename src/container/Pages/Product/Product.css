@@ -1,0 +1,140 @@
+.header {
+    background: hsl(44, 100%, 56%);
+    display: flex;
+    width:340px;
+    height: 80px;
+    position: relative;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.49);
+
+
+  }
+
+  .card {
+  
+    width: 340px;
+  
+    height: 400px;
+  
+    box-sizing: border-box;
+  
+    margin-left: 30px;
+  
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.49);
+  
+  }
+  
+  .header .logo img {
+  
+    width: 70px;
+  
+    margin-top: 0px;
+  
+  }
+  
+  .logo img {
+    width: 100px;
+  }
+  
+  .troley {
+    position: relative;
+  }
+
+  
+  .img-thumb-prod img {
+
+    width: 95%;
+  
+    margin-left: 9px;
+  
+    margin-top: 9px;
+  
+  }
+  
+  
+  .product-tittle {
+
+    font-weight: 700;
+  
+    margin: 10px;
+  
+  }
+  .product-price {
+
+    color: orange;
+  
+    font-weight: 700;
+  
+    margin-left: 10px;
+  
+  }
+  
+  .troley img {
+  
+    width: 30px;
+  
+    margin-top: 15px;
+  
+  }
+  
+  .count {
+    width: 0px;
+    background: #2d3c8d;
+    padding: 8px;
+    border-radius: 50%;
+    min-width: 5px;
+    height: 5px;
+    line-height: 5px;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    position: absolute;
+    bottom: 5px;
+    left: -15px;
+  }
+  
+  .img-thumb-prod img {
+  
+    width: 95%;
+    margin-left: 9px;
+    margin-top: 9px;
+  }
+  .product-title {
+    font-weight: 700;
+    margin: 10px;
+  }
+  
+  .product-price {
+    color: orange;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 10PX;
+  }
+  .minus, .plus {
+    color: white;
+    background: rgb(0, 0, 145);
+    margin:  10px;
+    font-size: larger;
+    line-height: 35px;
+
+  
+  }
+  
+  .counter {
+
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: -15px;
+  }
+  
+  .counter input {
+    width: 10;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid gray;
+    text-align: center;
+  }         
