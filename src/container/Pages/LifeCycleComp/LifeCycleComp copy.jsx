@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import './LifeCycleComp.css';
-import { RootContext } from "../../Home/Home";
+import { connect } from "react-redux";
 
 class LifeCycleComp extends Component {
 
@@ -64,27 +64,27 @@ class LifeCycleComp extends Component {
             count: this.state.count + 1
         })
     }
+
+
     render(){
-        // console.log(this.props);
+        console.log('render')
         return(
-            <RootContext.Consumer>
-                {
-                    value => {
-                        console.log('value :' ,value)
-                        return (
-                            <Fragment className="counter">
-                                <p>Halaman Lifecycle</p>
-                                <hr />
-                                <button className="btn" onClick={this.changeCount}>Componen Button {this.state.count}</button>
-                                <hr />
-                                <p>Total Order Saat Ini :  {value.state.totalOrder} </p>
-                            </Fragment>
-                        )
-                    }
-                }
-            </RootContext.Consumer>
+            <Fragment>
+                <p>Halaman Lifecycle</p>
+                <hr />
+                <button className="btn" onClick={this.changeCount}>Componen Button {this.state.count}</button>
+                <hr />
+                <p>Total Order: {this.props.order}</p>
+            </Fragment>
         )
     }
 }
 
-export default LifeCycleComp;
+// menangkap state totalOrder
+
+const mapStateToProps = state => {
+    return {
+        order: state.totalOrder
+    }
+}
+export default connect(mapStateToProps)(LifeCycleComp);
