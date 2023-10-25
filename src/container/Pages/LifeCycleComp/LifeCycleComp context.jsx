@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from "react";
 import './LifeCycleComp.css';
-import { GlobalConsumer } from "../../../context/context";
+import { RootContext } from "../../Home/Home";
 
 class LifeCycleComp extends Component {
 
@@ -66,15 +66,24 @@ class LifeCycleComp extends Component {
     }
     render(){
         return(
-            <Fragment className="counter">
-                <p>Halaman Lifecycle</p>
-                <hr />
-                <button className="btn" onClick={this.changeCount}>Componen Button {this.state.count}</button>
-                <hr />
-                <p>Total Order Saat Ini :  {this.props.state.totalOrder} </p>
-            </Fragment>
+            <RootContext.Consumer>
+                {
+                    value => {
+                        // console.log('value :' ,value)
+                        return (
+                            <Fragment className="counter">
+                                <p>Halaman Lifecycle</p>
+                                <hr />
+                                <button className="btn" onClick={this.changeCount}>Componen Button {this.state.count}</button>
+                                <hr />
+                                <p>Total Order Saat Ini :  {value.state.totalOrder} </p>
+                            </Fragment>
+                        )
+                    }
+                }
+            </RootContext.Consumer>
         )
     }
 }
 
-export default GlobalConsumer (LifeCycleComp);
+export default LifeCycleComp;
