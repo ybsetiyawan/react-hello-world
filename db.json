@@ -593,6 +593,12 @@
       "title": "Tittle Number 2 baru",
       "body": "Ini adalah isi dari konten di tittle number 2 baru",
       "userId": 1
+    },
+    {
+      "id": 1698307473976,
+      "title": "Tutorial Global API update",
+      "body": "Tutorial Global API terbaru update",
+      "userId": 1
     }
   ],
   "comments": [],

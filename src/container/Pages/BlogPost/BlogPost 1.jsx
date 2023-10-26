@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from "react";
 import './BlogPost.css';
 import Post from "../../../component/Post/Post";
-import API from "../../../services";
+import axios from "axios";
 
 
 class BlogPost extends Component {
@@ -15,44 +15,40 @@ class BlogPost extends Component {
             body: '',
             userId: 1
         },
-        isUpdate: false,
-        // comments: []
-
+        isUpdate: false
         
     }
 
     getPostAPI = () => {
-        API.getNewsBlog().then(result => {
+        axios.get('http://localhost:3004/posts?_sort=id&_order=desc')
+        .then((result) => {
+            // console.log(result.data)
             this.setState({
-                post: result
+                post: result.data
             })
-        // API.getComments().then(result => {
-        //     this.setState({
-        //         comments: result
-        //     })
-        // })
         })
     }
    
     postDataToAPI = () => {
-        API.postNewsBlog(this.state.formBlogPost).then(res => {
+        axios.post('http://localhost:3004/posts',this.state.formBlogPost).then((res) =>{
+            console.log(res);
             this.getPostAPI();
             this.setState({
-                formBlogPost : {
+                formBlogPost: {
                     id: 1,
                     title: '',
                     body: '',
                     userId: 1
                 },
             })
+        },(err) =>{
+            console.log('error :',err);
         })
     }
 
     putDataToAPI = () => {
-
-        API.updateNewsBlog(this.state.formBlogPost, this.state.formBlogPost.id).then(res => {
-            
-            // console.log(res);
+           axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`,this.state.formBlogPost).then((res)=>{
+            console.log(res);
             this.getPostAPI();
             // mengmbalikan isUpdate menjadi false saat setelah user berhasil melakukan update data ( mengembalikan tombol simpan menjadi fungsi post)
             this.setState({
@@ -69,7 +65,8 @@ class BlogPost extends Component {
     }
     // fungsi untuk mendapatkan id yang akan dihapus 
     handleRemove = (data) => {
-        API.deleteNewsBlog(data).then(res => {
+        // console.log(data)
+        axios.delete(`http://localhost:3004/posts/${data}`).then((res)=>{
             this.getPostAPI();
         })
     }
@@ -165,13 +162,6 @@ class BlogPost extends Component {
                     </textarea>
                     <button className="btn-submit" onClick={this.handleSubmit}>Simpan</button>
                 </div>
-
-                {/* {
-                    this.state.comments.map(comment => {
-                        return <p>{comment.name} - {comment.email} </p>
-                    })    
-                } */}
-
                 {
                     this.state.post.map(post => {
                         // return  <Post key={post.id} title={post.title} desc={post.body} remove={this.handleRemove}/>
