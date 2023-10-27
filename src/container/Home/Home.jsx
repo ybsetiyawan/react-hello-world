@@ -7,6 +7,7 @@ import './Home.css'
 import YoutubeCompPage from "../Pages/YoutubeCompPage/YoutubeCompPage";
 import DetailPost from "../Pages/BlogPost/DetailPost/DetailPost";
 import GlobalProvider from "../../context/context";
+import Hooks from "../Pages/Hooks/Hooks";
 
 
 
@@ -20,12 +21,14 @@ class Home extends Component {
                             <Link to="/produk">Produk</Link>
                             <Link to="/lifecycle">Lifecyle</Link>
                             <Link to="/youtube-component">Youtube Comp</Link>
+                            <Link to="/hooks">Hooks</Link>
                         </div>
                         <Route path="/" exact component={BlogPost} />
                         <Route path="/detail-post/:postId" component={DetailPost} />
                         <Route path="/produk" component={Product} />
                         <Route path="/lifecycle" component={LifeCycleComp} />
                         <Route path="/youtube-component" component={YoutubeCompPage} />
+                        <Route path="/hooks" component={Hooks} />
                     </Fragment>
             </Router>
 
